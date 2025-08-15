@@ -1,0 +1,14 @@
+---
+title: Blog | TiredChefOnline
+description: Short, useful posts about local SEO and fast web fixes.
+layout: layouts/base.njk
+permalink: blog/index.html
+---
+<div class="container">
+  <h1>Blog</h1>
+  <ul>
+  {% for post in collections.posts %}
+    <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>

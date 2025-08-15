@@ -1,0 +1,37 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+  functions = "netlify/functions"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+
+[[redirects]]
+  from = "/404"
+  to = "/404.html"
+  status = 404
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs.thresholds]
+    performance = 0.90
+    accessibility = 0.90
+    seo = 0.95
+  [[plugins.inputs.audits]]
+    path = "index.html"
+  [[plugins.inputs.audits]]
+    path = "contact/index.html"
+
+[[plugins]]
+  package = "netlify-plugin-no-more-404"
+
+[[plugins]]
+  package = "netlify-plugin-checklinks"

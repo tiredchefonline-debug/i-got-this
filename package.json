@@ -1,0 +1,16 @@
+{
+  "name": "tiredchefonline-eleventy-skeleton",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "contract:check": "node scripts/contract-check.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@netlify/plugin-lighthouse": "^5.0.0",
+    "netlify-plugin-checklinks": "^6.0.0",
+    "netlify-plugin-no-more-404": "^1.0.0"
+  }
+}

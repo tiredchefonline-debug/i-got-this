@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title | default("TiredChefOnline") }}</title>
+  <meta name="description" content="{{ description | default('') }}">
+  <link rel="canonical" href="{{ page.url | url }}">
+  <link rel="icon" href="/assets/brand/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+  <meta property="og:image" content="/assets/brand/og-default.png">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container row">
+      <a href="/" class="brand"><img src="/assets/brand/logo.svg" width="144" height="32" alt="TiredChefOnline"></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" class="nav">
+        <a href="/#services">Services</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <div class="container row">
+      <small>© <span id="year"></span> TiredChefOnline</small>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </footer>
+  <script src="/assets/js/main.js" defer></script>
+  <script>
+  const form=document.getElementById('audit-form'); const out=document.getElementById('audit-result');
+  if(form){form.addEventListener('submit', async e=>{e.preventDefault();const url=new FormData(form).get('url');out.textContent='Checking '+url+' ...';try{const r=await fetch(`/.netlify/functions/audit?url=${encodeURIComponent(url)}`);const data=await r.json();if(data.error)throw new Error(data.error);out.innerHTML=`<strong>${data.title}</strong><ul><li>Meta: ${data.meta?'yes':'no'}</li><li>Favicon: ${data.favicon?'yes':'no'}</li>${data.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`;}catch(err){out.textContent='Error: '+err.message;}});}
+  </script>
+</body>
+</html>

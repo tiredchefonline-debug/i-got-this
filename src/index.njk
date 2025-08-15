@@ -1,0 +1,38 @@
+---
+title: TiredChefOnline | Clear, fast, human-first
+description: Simple, no-BS local SEO and fast web fixes. Built for 2025, easy for humans and AI crawlers.
+layout: layouts/base.njk
+permalink: index.html
+---
+
+<section class="hero">
+  <div class="container">
+    <h1>Local SEO that does not suck</h1>
+    <p>Clean code, clear copy, fast pages. Ship changes without breaking the base.</p>
+    <a href="/#audit" class="btn">Free mini audit</a>
+  </div>
+</section>
+
+<section id="services" class="grid container">
+  <article class="card"><h2>SEO tune-up</h2><p>Titles, meta, speed, schema. No fluff.</p></article>
+  <article class="card"><h2>Fix what is broken</h2><p>Logos, favicons, menus, forms, 404s. Fixed and tested.</p></article>
+  <article class="card"><h2>GBP help</h2><p>Maps, photos, posts that actually help.</p></article>
+</section>
+
+<section id="audit" class="container">
+  <h2>Quick SEO check</h2>
+  <form id="audit-form" class="form">
+    <label>Website URL <input type="url" name="url" placeholder="https://yourbusiness.com" required></label>
+    <button class="btn" type="submit">Run check</button>
+  </form>
+  <div id="audit-result" aria-live="polite"></div>
+</section>
+
+<section class="container">
+  <h2>Get updates</h2>
+  <form name="newsletter" method="POST" data-netlify="true" class="form">
+    <input type="hidden" name="form-name" value="newsletter">
+    <label>Email <input name="email" type="email" required></label>
+    <button class="btn">Subscribe</button>
+  </form>
+</section>

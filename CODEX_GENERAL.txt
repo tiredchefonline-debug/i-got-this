@@ -1,0 +1,25 @@
+Paste this into Codex → General
+
+Project: TiredChefOnline. Host: Netlify. Goal: only update style/content; never break base.
+
+If ELEVENTY:
+- Keep publish="_site", functions="netlify/functions".
+- Edit /src/** only; keep /src/_includes/layouts/base.njk unless task says otherwise.
+- Brand in /src/assets/brand/: logo.svg, favicon.svg, favicon.ico, apple-touch-icon.png, og-default.png
+- Use base layout; set title, description, permalink.
+- Required head (paths exact):
+  <link rel="icon" href="/assets/brand/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+  <meta property="og:image" content="/assets/brand/og-default.png">
+
+If STATIC:
+- Keep publish="public", functions="netlify/functions".
+- Only edit /public/**. Do not change the head paths above.
+
+All tasks:
+- Minimal diffs. No new libs by default.
+- Semantic HTML; images have alt + width/height; non-hero images loading="lazy".
+- Titles + meta descriptions on every page; one canonical.
+- A11y: visible focus, keyboard nav.
+- Output: rationale → unified diff → test plan.
